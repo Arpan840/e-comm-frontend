@@ -10,6 +10,7 @@ import { Person } from "@/Interfaces/userInterface";
 import { toast } from "react-toastify";
 import { RootState } from "@/Redux/Store/Store";
 
+
 const SignUpModal = () => {
   const modalCurrentState = useContext(modalContext);
   const { showModal, setShowModal } = modalCurrentState;
@@ -19,13 +20,18 @@ const SignUpModal = () => {
     setShowModal(false);
   };
   const handleShow = () => setShowModal(true);
-  const response = useSelector((state: RootState) => {
-    if(state)
-    {
-      console.log(state)
+  const response = useSelector((state: RootState) => state.userSignUp.user);
+  useEffect(() => {
+    if (response && response.status === 200) {
+      console.log(response);
+      toast.success(response.message);
+      handleClose();
+    } else if (response) {
+      console.log(response);
+      toast.error(response.message);
+      localStorage.setItem('user',JSON.stringify(response.data))
     }
-  });
-  
+  }, [response]); 
   const {
     control,
     handleSubmit,
@@ -47,14 +53,14 @@ const SignUpModal = () => {
     dispatch(SignUpUser(data) as any);
     }
     else{
-      toast.error('Password does not patches')
+      toast.error('Password does not matches')
     }
   };
 
   return (
     <>
       <button className="btn text-primary" onClick={handleShow}>
-        Launch demo modal
+        Sign Up
       </button>
 
       <Modal show={showModal} onHide={handleClose} size="xl">
