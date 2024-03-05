@@ -11,3 +11,7 @@ export interface InputController {
     control: any;
     name: string;
   }
+ export interface Login{
+  userId: string,
+  password: string
+ } 

@@ -1,10 +1,15 @@
-import axios from "axios"
-import { Person } from "@/Interfaces/userInterface"
+import axios from "axios";
+import { Login, Person } from "@/Interfaces/userInterface";
+import BaseUrl from "./BaseUrl";
 
-const host = "http://localhost:8000/"
+const host = BaseUrl;
 
-function userSignUp(body: Person){
-    return axios.post(`${host}auth/SignUp`,body)
+function userSignUp(body: Person) {
+  return axios.post(`${host}auth/SignUp`, body);
 }
 
-export {userSignUp}
+function userLogin(body: Login) {
+  return axios.post(`${host}auth/Login`, body);
+}
+
+export { userSignUp, userLogin };

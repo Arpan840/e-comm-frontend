@@ -29,7 +29,6 @@ const SignUpModal = () => {
     } else if (response) {
       console.log(response);
       toast.error(response.message);
-      localStorage.setItem('user',JSON.stringify(response.data))
     }
   }, [response]); 
   const {
