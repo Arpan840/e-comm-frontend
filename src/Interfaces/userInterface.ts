@@ -10,8 +10,7 @@ export interface Person {
   }
 
   export interface Login{
-    status: Login;
+    [x: string]: any;
     userId: string;
     password: string;
-    userData: object;
   }

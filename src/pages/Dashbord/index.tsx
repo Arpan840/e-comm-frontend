@@ -1,11 +1,10 @@
-import LoginModal from "@/Components/Controllers/LoginModal";
-import SignUpModal from "../../Components/Signup.Modal";
+import TopNavbar from "@/Components/Navbar";
+
 
 const Dashbord = () => {
   return (
     <>
-      <SignUpModal />
-      <LoginModal/>
+     
     </>
   );
 };

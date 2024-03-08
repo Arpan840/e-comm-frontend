@@ -15,3 +15,12 @@ export interface InputController {
   userId: string,
   password: string
  } 
+
+ export interface search{
+  searchProducts: string
+ }
+
+ export interface Logout{
+  status?: number,
+  message?: string,
+ }

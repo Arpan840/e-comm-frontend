@@ -21,8 +21,8 @@ export const LoginUser = createAsyncThunk(
     error: any;
   } = {
     user: {
-     userId:"",
-     password:""
+        userId: "",
+        password: "",
     },
     isLoading: false,
     error: null,

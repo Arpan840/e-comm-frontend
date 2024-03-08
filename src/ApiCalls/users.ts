@@ -12,4 +12,8 @@ function userLogin(body: Login) {
   return axios.post(`${host}auth/Login`, body);
 }
 
-export { userSignUp, userLogin };
+function userLogout(){
+  return axios.delete(`${host}auth/Logout`);
+}
+
+export { userSignUp, userLogin, userLogout };
